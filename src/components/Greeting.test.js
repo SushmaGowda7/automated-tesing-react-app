@@ -34,4 +34,17 @@ describe('Greet compontnt', () => {
         expect(changeElement).toBeInTheDocument();
     })
 
+    test('checks wheather text is visible when button is clicked!', () => {
+        //arrange
+        render(<Greetings />);
+
+        //act
+        const buttonElement = screen.getByRole('button');
+        userEvent.click(buttonElement);
+
+        //assert
+        const changeElement = screen.queryByText('good to see you', { exact: false});
+        expect(changeElement).toBeNull();
+    })
+
 })
