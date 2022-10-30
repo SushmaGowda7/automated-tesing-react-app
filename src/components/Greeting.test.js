@@ -2,10 +2,11 @@ import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event";
 import Greetings from "./Greetings"
 
-describe('Greet compontnt', () => {
+describe('Greet component', () => {
     test('renders greeting test', () => {
         //arrange
         render(<Greetings />);
+        
         //act
             //here nothing
         //assert
@@ -18,7 +19,7 @@ describe('Greet compontnt', () => {
         render(<Greetings />);
 
         //assert
-        const changeElement = screen.getByText('good to see you', { exact: false});
+        const changeElement = screen.getByText('good to see you', { exact: false });
         expect(changeElement).toBeInTheDocument();
     })
     test('renders change text when button is clicked!', () => {
@@ -30,7 +31,7 @@ describe('Greet compontnt', () => {
         userEvent.click(buttonElement);
 
         //assert
-        const changeElement = screen.getByText('changed', { exact: false});
+        const changeElement = screen.getByText('changed', { exact: false });
         expect(changeElement).toBeInTheDocument();
     })
 
@@ -43,8 +44,7 @@ describe('Greet compontnt', () => {
         userEvent.click(buttonElement);
 
         //assert
-        const changeElement = screen.queryByText('good to see you', { exact: false});
+        const changeElement = screen.queryByText('good to see you', { exact: false });
         expect(changeElement).toBeNull();
     })
-
-})
+});
